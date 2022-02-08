@@ -1,2 +1,4 @@
 ./samples/*
 js.dll
+js.pd_darwin
+.DS_store
