@@ -1,4 +1,4 @@
-#N canvas 731 23 1487 1315 12;
+#N canvas 257 157 1487 1315 12;
 #X obj 299 89 inlet;
 #X obj 361 89 inlet, f 6;
 #X floatatom 354 263 5 0 0 0 - - - 0;
@@ -82,7 +82,6 @@
 #X obj 491 80 inlet;
 #X obj 541 123 s \$0-array-name;
 #X obj 140 582 r \$0-array-name;
-#X text 244 41 length \, pitch \, decay \, pan \, sound;
 #X obj 356 781 4channel/4ch-pan;
 #X obj 424 91 inlet;
 #X obj 488 757 r \$0-pan;
@@ -93,13 +92,17 @@
 #X obj 557 838 outlet~;
 #X obj 301 630 tabread4~;
 #X msg 560 699 50;
-#X connect 0 0 6 0;
+#X obj 561 262 + 0;
+#X obj 591 77 inlet;
+#X text 244 41 length \, pitch \, decay \, pan \, sound \, pitch mod
+;
+#X connect 0 0 76 0;
 #X connect 1 0 30 0;
 #X connect 2 0 12 1;
 #X connect 2 0 13 1;
 #X connect 2 0 16 1;
 #X connect 3 0 6 0;
-#X connect 4 0 75 0;
+#X connect 4 0 74 0;
 #X connect 5 0 13 2;
 #X connect 6 0 5 1;
 #X connect 8 0 2 0;
@@ -117,7 +120,7 @@
 #X connect 20 0 27 0;
 #X connect 21 0 31 0;
 #X connect 23 0 18 0;
-#X connect 25 0 67 0;
+#X connect 25 0 66 0;
 #X connect 26 0 25 1;
 #X connect 27 0 26 0;
 #X connect 28 0 26 0;
@@ -161,12 +164,14 @@
 #X connect 61 0 42 0;
 #X connect 62 0 56 0;
 #X connect 63 0 64 0;
-#X connect 65 0 75 0;
-#X connect 67 0 71 0;
-#X connect 67 1 72 0;
-#X connect 67 2 73 0;
-#X connect 67 3 74 0;
-#X connect 68 0 70 0;
-#X connect 69 0 67 1;
-#X connect 75 0 25 0;
-#X connect 76 0 67 1;
+#X connect 65 0 74 0;
+#X connect 66 0 70 0;
+#X connect 66 1 71 0;
+#X connect 66 2 72 0;
+#X connect 66 3 73 0;
+#X connect 67 0 69 0;
+#X connect 68 0 66 1;
+#X connect 74 0 25 0;
+#X connect 75 0 66 1;
+#X connect 76 0 6 0;
+#X connect 77 0 76 1;
