@@ -1,18 +1,18 @@
-#N canvas 711 23 1487 1315 12;
+#N canvas 63 103 1487 1315 12;
 #X declare -lib timbreID/timbreIDLib;
 #X msg 1244 568 read -resize \$1 array1;
 #X obj 1244 598 soundfiler;
 #X obj 1242 542 openpanel;
-#X obj 1241 517 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 1241 517 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
 #X obj 1256 847 table array1 441000;
 #X obj 1169 748 table hanning 22050;
 #X obj 1242 643 s sampleLen;
 #X obj 1312 751 table melody;
-#X floatatom 761 518 5 0 0 0 - - -;
+#X floatatom 761 518 5 0 0 0 - - - 0;
 #X text 656 541 doubled transp;
 #X obj 765 549 s trans;
-#X floatatom 444 544 5 0 0 0 - - -;
+#X floatatom 444 544 5 0 0 0 - - - 0;
 #X text 447 511 central rate;
 #X obj 439 571 s rate;
 #N canvas 394 138 972 560 melodies 0;
@@ -30,23 +30,23 @@
 #X connect 2 2 6 0;
 #X connect 2 3 3 0;
 #X restore 554 549 pd melodies;
-#X obj 560 516 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
-#X obj 240 537 s position;
-#X obj 265 516 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 12700 1;
+#X obj 560 516 hradio 15 1 0 4 empty empty empty 0 -8 0 10 #fcfcfc
+#000000 #000000 0;
+#X obj 204 583 s position;
+#X obj 229 562 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10
+#fcfcfc #000000 #000000 0 1;
 #X obj 184 207 adc~;
-#X floatatom 210 362 5 0 0 0 - - -;
-#N canvas 1164 434 1502 908 feature-extraction 1;
+#X floatatom 210 362 5 0 0 0 - - - 0;
+#N canvas 1058 430 1502 908 feature-extraction 0;
 #N canvas 359 124 1520 957 onsets 0;
 #X obj 56 53 inlet~;
 #X obj 206 323 outlet;
-#X obj 3 4 cnv 10 400 10 empty empty empty 20 12 0 14 -233017 -66577
+#X obj 3 4 cnv 10 400 10 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
-#X obj 3 4 cnv 10 10 400 empty empty empty 20 12 0 14 -233017 -66577
+#X obj 3 4 cnv 10 10 400 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
-#X obj 178 173 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 178 173 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
 #X obj 171 96 r bark-settings;
 #X text 308 53 timbreID comes with its own onset detection object:
 bark~. See its helpfile for more details. In comparison with bonk~
@@ -80,8 +80,8 @@ files used in this help file., f 22;
 #X obj 67 77 inlet~;
 #X obj 64 339 outlet;
 #X obj 119 338 outlet;
-#X obj 372 75 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
+#X obj 372 75 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X obj 372 95 metro 100;
 #X obj 376 116 t b b;
 #X obj 270 206 specHarmonicity~ 4096;
@@ -98,7 +98,7 @@ pitch analysis BEFORE harmonicity measure by putting [sigmund~] in
 a series-patched subpatch connected to [specHarmonicity~].;
 #X obj 267 280 f;
 #X obj 297 177 sigmund~ pitch -npts 4096 -hop 512 -maxfreq 3000;
-#X floatatom 277 304 10 0 0 1 Hz - -;
+#X floatatom 277 304 10 0 0 1 Hz - - 0;
 #X connect 0 0 7 1;
 #X connect 1 1 0 0;
 #X connect 3 0 4 0;
@@ -142,79 +142,124 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 19 0 20 0;
 #X connect 20 0 3 0;
 #X restore 162 294 pd feature-extraction;
-#X floatatom 258 362 5 0 0 0 - - -;
-#X floatatom 306 363 5 0 0 0 - - -;
-#X obj 520 91 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -257985
--1 -1 0 1;
-#X obj 87 88 bng 60 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 577 89 vsl 15 128 0 50 0 0 empty empty empty 0 -9 0 10 -258113
--1 -1 1900 1;
-#X obj 628 92 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -4032
--1 -1 9878 1;
-#X obj 673 93 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -4034
--1 -1 6679 1;
-#X obj 255 410 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X floatatom 159 363 5 0 0 0 - - -;
-#X floatatom 1350 639 5 0 0 0 - - -;
+#X floatatom 258 362 5 0 0 0 - - - 0;
+#X floatatom 306 363 5 0 0 0 - - - 0;
+#X obj 520 91 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 #f8fc00
+#000000 #000000 0 1;
+#X obj 87 88 bng 60 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 577 89 vsl 15 128 0 50 0 0 empty empty empty 0 -9 0 10 #fc0400
+#000000 #000000 0 1;
+#X obj 628 92 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 #00f8fc
+#000000 #000000 0 1;
+#X obj 673 93 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 #00fc04
+#000000 #000000 0 1;
+#X obj 255 410 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 159 363 5 0 0 0 - - - 0;
+#X floatatom 1350 639 5 0 0 0 - - - 0;
 #X text 29 95 ONSET;
-#X obj 261 177 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
+#X obj 261 177 tgl 60 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X obj 270 248 s onoff;
-#N canvas 1229 372 1051 863 playhead-influence 0;
-#X obj 149 246 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 12700 1;
-#X obj 84 158 t b f;
-#X msg 209 219 set \$1;
-#X obj 173 151 +;
-#X obj 213 192 min 120;
-#X obj 213 164 max -20;
-#X obj 148 320 outlet;
+#N canvas 1529 417 1051 863 playhead-influence 1;
+#X obj 141 538 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10
+#fcfcfc #000000 #000000 0 1;
+#X obj 81 471 t b f;
+#X msg 201 511 set \$1;
+#X obj 165 443 +;
+#X obj 205 484 min 120;
+#X obj 205 456 max -20;
+#X obj 140 612 outlet;
 #X obj 29 47 inlet;
-#X obj 112 38 inlet;
-#X floatatom 292 59 5 0 0 0 - - -;
-#X obj 103 117 expr -1 * ($f1 / 4 - 2);
 #X obj 27 120 * -0.125;
-#X obj 426 263 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 426 263 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
 #X obj 506 333 + 1;
 #X obj 444 326 f 0;
-#X floatatom 510 457 5 0 0 0 - - -;
+#X floatatom 510 457 5 0 0 0 - - - 0;
 #X obj 441 395 % 40;
 #X obj 512 486 select 0;
-#X obj 520 533 s rand-samp;
 #X obj 527 243 > 117;
 #X obj 542 273 sel 1;
+#X obj 377 98 expr $f1 * -0.125 - 0.062;
+#X floatatom 91 173 5 0 0 0 - - - 0;
+#X obj 377 62 r playhead-sens;
+#X obj 664 69 r playhead-bias;
+#X obj 50 184 + 0;
+#X obj 657 135 expr $f1 * -3 + 1.5;
+#X obj 269 224 r invert;
+#X obj 61 231 * 1;
+#X obj 195 308 sel 1 0;
+#X floatatom 81 296 5 0 0 0 - - - 0;
+#X msg 108 253 1;
+#X msg 544 604 1;
+#X msg 484 610 0;
+#X obj 527 662 s invert;
+#X obj 615 538 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 606 615 spigot;
+#X obj 694 375 + 1;
+#X obj 632 368 f 0;
+#X floatatom 698 499 5 0 0 0 - - - 0;
+#X obj 629 437 % 40;
+#X obj 700 528 select 0;
+#X obj 594 239 < -10;
+#X msg 101 214 -1.5;
 #X connect 0 0 3 0;
 #X connect 0 0 6 0;
-#X connect 0 0 19 0;
+#X connect 0 0 15 0;
+#X connect 0 0 38 0;
 #X connect 1 0 0 0;
+#X connect 1 0 32 0;
 #X connect 1 1 3 1;
 #X connect 2 0 0 0;
 #X connect 3 0 5 0;
 #X connect 4 0 2 0;
 #X connect 5 0 4 0;
-#X connect 7 0 11 0;
-#X connect 8 0 10 0;
-#X connect 10 0 1 0;
-#X connect 10 0 9 0;
-#X connect 11 0 1 0;
+#X connect 7 0 8 0;
+#X connect 8 0 21 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 1;
+#X connect 11 0 10 0;
+#X connect 11 0 13 0;
 #X connect 12 0 14 0;
-#X connect 13 0 14 1;
-#X connect 14 0 13 0;
-#X connect 14 0 16 0;
-#X connect 15 0 17 0;
-#X connect 16 0 15 0;
-#X connect 17 0 18 0;
-#X connect 19 0 20 0;
-#X connect 20 0 12 0;
-#X restore 236 479 pd playhead-influence;
+#X connect 13 0 12 0;
+#X connect 14 0 28 0;
+#X connect 15 0 16 0;
+#X connect 16 0 9 0;
+#X connect 17 0 8 1;
+#X connect 19 0 17 0;
+#X connect 20 0 22 0;
+#X connect 21 0 18 0;
+#X connect 21 0 24 0;
+#X connect 22 0 21 1;
+#X connect 23 0 25 0;
+#X connect 24 0 1 0;
+#X connect 24 0 26 0;
+#X connect 25 0 39 0;
+#X connect 25 1 27 0;
+#X connect 27 0 24 1;
+#X connect 28 0 30 0;
+#X connect 28 0 31 0;
+#X connect 29 0 31 0;
+#X connect 29 0 30 0;
+#X connect 31 0 32 1;
+#X connect 32 0 34 0;
+#X connect 33 0 34 1;
+#X connect 34 0 33 0;
+#X connect 34 0 36 0;
+#X connect 35 0 37 0;
+#X connect 36 0 35 0;
+#X connect 37 0 29 0;
+#X connect 38 0 16 0;
+#X connect 39 0 24 1;
+#X restore 200 525 pd playhead-influence;
 #N canvas 1940 596 483 583 rate-influence 1;
 #X obj 151 151 max 0;
 #X obj 151 179 min 100;
-#X obj 98 226 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 10886 1;
+#X obj 98 226 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
 #X msg 151 203 set \$1;
 #X obj 30 78 t b f;
 #X obj 154 114 +;
@@ -222,7 +267,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X obj 20 9 inlet;
 #X obj 111 21 inlet;
 #X msg 34 40 2;
-#X obj 68 45 * -0.1;
+#X obj 68 45 * -0.08;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
 #X connect 2 0 5 0;
@@ -237,8 +282,8 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 10 0 4 0;
 #X restore 406 483 pd rate-influence;
 #N canvas 1655 116 979 847 melody-influence 0;
-#X obj 110 331 hsl 128 15 0 3.99 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 7085 1;
+#X obj 110 331 hsl 128 15 0 3.99 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
 #X msg 163 308 set \$1;
 #X obj 56 223 t b f;
 #X obj 166 219 +;
@@ -249,7 +294,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X obj 163 257 max 0;
 #X obj 163 284 min 3.99;
 #X obj 33 83 -;
-#X floatatom 33 107 5 0 0 0 - - -;
+#X floatatom 33 107 5 0 0 0 - - - 0;
 #X obj 40 158 f;
 #X obj 112 98 abs;
 #X obj 116 141 > 0.2;
@@ -276,17 +321,17 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 16 0 12 0;
 #X restore 554 483 pd melody-influence;
 #N canvas 1665 290 980 932 trans-influence 0;
-#X obj 94 388 hsl 128 15 -24 24 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 9790 1;
+#X obj 94 388 hsl 128 15 -24 24 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
 #X msg 147 365 set \$1;
 #X obj 25 205 t b f;
 #X obj 150 276 +;
 #X obj 47 427 outlet;
 #X obj 154 26 inlet;
-#X floatatom 228 290 5 0 0 0 - - -;
+#X floatatom 228 290 5 0 0 0 - - - 0;
 #X obj 147 314 max -24;
 #X obj 147 341 min 24;
-#X floatatom 271 33 5 0 0 0 - - -;
+#X floatatom 271 33 5 0 0 0 - - - 0;
 #X text 229 124 difference between last two values;
 #X obj 143 101 -;
 #X obj 151 50 t f f;
@@ -301,8 +346,8 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X obj 320 283 random 24;
 #X obj 320 315 * -1;
 #X obj 304 242 * 1;
-#X obj 270 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 270 169 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
 #X obj 285 60 abs;
 #X obj 286 87 > 1;
 #X obj 250 104 sel 1;
@@ -340,13 +385,12 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 26 0 27 0;
 #X connect 27 0 24 0;
 #X restore 748 481 pd trans-influence;
-#X floatatom 358 363 5 0 0 0 - - -;
+#X floatatom 358 363 5 0 0 0 - - - 0;
 #X obj 47 329 env~ 16384 8192;
-#X floatatom 47 416 5 0 0 0 - - -;
+#X floatatom 47 416 5 0 0 0 - - - 0;
 #X text 354 390 env \, brightness \, power \, harmonicity \, inharmonicity
 \, spectral flatness;
 #X obj 47 392 expr $f1 - 55;
-#X floatatom 331 548 5 0 0 0 - - -;
 #X obj 79 666 env~ 16384 8192;
 #X obj 77 643 hip~ 1000;
 #X obj 77 687 expr $f1 - 50;
@@ -355,12 +399,12 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X msg 641 987 all set array1;
 #X msg 463 969 all 30;
 #X obj 316 1088 clone sampler 8, f 52;
-#X obj 938 886 hsl 128 15 0 100 0 0 empty empty spread -2 -8 0 10 -262144
--1 -1 12700 1;
-#X obj 993 934 hsl 128 15 0 100 0 0 empty empty center -2 -8 0 10 -262144
--1 -1 0 1;
+#X obj 938 886 hsl 128 15 0 100 0 0 empty empty spread -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 993 934 hsl 128 15 0 100 0 0 empty empty center -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
 #X obj 112 863 metro 100;
-#N canvas 110 143 610 533 pan-control 0;
+#N canvas 951 493 610 533 pan-control 0;
 #X obj 102 153 t b b b b b b b b b;
 #X obj 164 219 f;
 #X obj 222 221 + 1;
@@ -375,6 +419,10 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X obj 278 41 inlet;
 #X obj 495 49 inlet;
 #X obj 227 456 outlet;
+#X msg 131 76 100;
+#X obj 117 48 loadbang;
+#X obj 492 97 loadbang;
+#X msg 506 125 0;
 #X connect 0 0 7 0;
 #X connect 0 1 1 0;
 #X connect 0 2 1 0;
@@ -402,6 +450,10 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 11 0 6 0;
 #X connect 11 0 4 0;
 #X connect 12 0 5 0;
+#X connect 14 0 6 0;
+#X connect 15 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 5 0;
 #X restore 872 1042 pd pan-control;
 #X msg 333 1014 all \$1;
 #X obj 36 1013 loadbang;
@@ -426,7 +478,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 6 0 3 1;
 #X restore 180 1052 pd density;
 #X obj 85 1118 vsl 15 128 40 500 0 0 empty empty duration 0 -9 0 10
--262144 -1 -1 9939 1;
+#fcfcfc #000000 #000000 0 1;
 #X msg 798 978 all 0;
 #N canvas 385 647 450 300 trans 0;
 #X obj 216 70 r trans;
@@ -456,7 +508,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X obj 111 166 outlet;
 #X obj 278 116 tabread melody;
 #X obj 347 148 - 7;
-#X floatatom 344 182 5 0 0 0 - - -;
+#X floatatom 344 182 5 0 0 0 - - - 0;
 #X obj 221 80 f 0;
 #X obj 258 80 + 1;
 #X obj 236 118 % 6;
@@ -469,7 +521,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 6 0 5 1;
 #X connect 7 0 2 0;
 #X restore 305 952 pd melody;
-#N canvas 236 281 637 413 rate 0;
+#N canvas 780 337 637 413 rate 1;
 #X obj 278 153 js javascripts/random.js 0 100;
 #X obj 240 120 f;
 #X obj 265 84 r rate;
@@ -479,8 +531,10 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 0 0 3 0;
 #X connect 1 0 0 0;
 #X connect 2 0 1 1;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
 #X restore 189 862 pd rate;
-#X obj 102 827 r onoff;
+#X obj 87 813 r onoff;
 #X obj 500 913 loadbang;
 #X obj 820 1129 noise~;
 #X obj 829 1180 *~ 0.05;
@@ -499,7 +553,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X obj 375 271 f;
 #X obj 429 340 sel 0;
 #X obj 527 346 sel 1;
-#X floatatom 297 383 5 0 0 0 - - -;
+#X floatatom 297 383 5 0 0 0 - - - 0;
 #X obj 373 392 select 0 1 2 3;
 #X obj 418 104 inlet;
 #X connect 0 0 5 0;
@@ -524,12 +578,43 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 14 2 3 0;
 #X connect 14 3 0 0;
 #X connect 15 0 6 0;
-#X restore 989 355 pd samples;
-#X obj 988 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 1023 305 r rand-samp;
+#X restore 1130 528 pd samples;
+#X obj 1129 462 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 1164 478 r rand-samp;
 #X obj 438 87 vsl 15 128 -20 30 0 0 empty empty amplitude 0 -9 0 10
--204800 -1 -1 0 1;
+#c4fcfc #000000 #000000 0 1;
+#X obj 168 408 r onoff;
+#X obj 756 69 vsl 15 128 0 1 0 0 empty empty playhead\ sensitivity
+0 -9 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 1217 97 vsl 15 128 0 1 0 0 empty empty rate\ sensitivity 0 -9
+0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 1386 102 vsl 15 128 0 1 0 0 empty empty trans\ sensitivity 0
+-9 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 753 236 s playhead-sens;
+#X obj 897 73 vsl 15 128 0 1 0 0 empty empty playhead\ bias 0 -9 0
+10 #fcfcfc #000000 #000000 0 1;
+#X obj 883 227 s playhead-bias;
+#X obj 1004 282 tgl 60 0 empty empty INVERT 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 1004 257 r invert;
+#N canvas 1908 511 450 300 randomize-settings 1;
+#X obj 84 137 random 100;
+#X obj 75 175 / 100;
+#X obj 182 135 random 100;
+#X obj 183 174 / 100;
+#X obj 70 48 inlet;
+#X obj 56 228 s playhead-sens-rand;
+#X obj 228 228 s playhead-bias-rand;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 4 0 0 0;
+#X connect 4 0 2 0;
+#X restore 954 546 pd randomize-settings;
+#X obj 750 24 r playhead-sens-rand;
+#X obj 921 24 r playhead-bias-rand;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 1 0 30 0;
@@ -541,7 +626,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 17 0 16 0;
 #X connect 18 0 20 0;
 #X connect 18 0 39 0;
-#X connect 18 0 45 0;
+#X connect 18 0 44 0;
 #X connect 19 0 25 0;
 #X connect 20 0 24 0;
 #X connect 20 1 29 0;
@@ -554,7 +639,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 25 0 35 1;
 #X connect 26 0 36 0;
 #X connect 27 0 36 1;
-#X connect 28 0 69 0;
+#X connect 28 0 68 0;
 #X connect 29 0 23 0;
 #X connect 32 0 33 0;
 #X connect 34 0 17 0;
@@ -563,40 +648,47 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 37 0 8 0;
 #X connect 39 0 42 0;
 #X connect 42 0 40 0;
-#X connect 44 0 46 0;
-#X connect 45 0 44 0;
-#X connect 46 0 73 0;
-#X connect 47 0 48 0;
-#X connect 47 1 48 1;
-#X connect 47 2 48 2;
-#X connect 47 3 48 3;
-#X connect 49 0 51 4;
-#X connect 50 0 51 2;
-#X connect 51 0 47 0;
-#X connect 51 1 47 1;
-#X connect 51 2 47 2;
-#X connect 51 3 47 3;
-#X connect 52 0 55 0;
-#X connect 53 0 55 1;
-#X connect 54 0 59 0;
-#X connect 54 0 63 0;
-#X connect 54 0 64 0;
-#X connect 55 0 51 3;
-#X connect 56 0 51 1;
-#X connect 57 0 58 0;
-#X connect 58 0 60 0;
-#X connect 59 0 51 0;
-#X connect 60 0 59 1;
-#X connect 61 0 51 5;
-#X connect 62 0 51 5;
-#X connect 63 0 56 0;
-#X connect 64 0 54 1;
-#X connect 65 0 54 0;
-#X connect 66 0 50 0;
-#X connect 66 0 49 0;
-#X connect 67 0 68 0;
-#X connect 69 0 35 0;
-#X connect 70 0 0 0;
-#X connect 71 0 70 0;
-#X connect 72 0 70 0;
-#X connect 73 0 34 0;
+#X connect 43 0 45 0;
+#X connect 44 0 43 0;
+#X connect 45 0 72 0;
+#X connect 46 0 47 0;
+#X connect 46 1 47 1;
+#X connect 46 2 47 2;
+#X connect 46 3 47 3;
+#X connect 48 0 50 4;
+#X connect 49 0 50 2;
+#X connect 50 0 46 0;
+#X connect 50 1 46 1;
+#X connect 50 2 46 2;
+#X connect 50 3 46 3;
+#X connect 51 0 54 0;
+#X connect 52 0 54 1;
+#X connect 53 0 58 0;
+#X connect 53 0 62 0;
+#X connect 53 0 63 0;
+#X connect 54 0 50 3;
+#X connect 55 0 50 1;
+#X connect 56 0 57 0;
+#X connect 57 0 59 0;
+#X connect 58 0 50 0;
+#X connect 59 0 58 1;
+#X connect 60 0 50 5;
+#X connect 61 0 50 5;
+#X connect 62 0 55 0;
+#X connect 63 0 53 1;
+#X connect 64 0 53 0;
+#X connect 65 0 49 0;
+#X connect 65 0 48 0;
+#X connect 66 0 67 0;
+#X connect 68 0 35 0;
+#X connect 69 0 0 0;
+#X connect 70 0 69 0;
+#X connect 70 0 82 0;
+#X connect 71 0 69 0;
+#X connect 72 0 34 0;
+#X connect 73 0 28 0;
+#X connect 74 0 77 0;
+#X connect 78 0 79 0;
+#X connect 81 0 80 0;
+#X connect 83 0 74 0;
+#X connect 84 0 78 0;
