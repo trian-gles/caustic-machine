@@ -1,0 +1,19 @@
+#N canvas 695 94 1487 1315 12;
+#X obj 295 188 js javascripts/std.js;
+#X msg 379 73 compile;
+#X msg 220 106 reset;
+#X msg 528 109 2;
+#X floatatom 323 346 5 0 0 0 - - -;
+#X floatatom 230 349 5 0 0 0 - - -;
+#X msg 589 115 3;
+#X obj 194 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 656 118 4;
+#X connect 0 0 5 0;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
