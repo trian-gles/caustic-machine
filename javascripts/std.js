@@ -6,6 +6,7 @@ var data_points = [];
 
 function msg_float(f) {
 	data_points.push(f);
+	post("new data point");
 }
 
 function _mean()

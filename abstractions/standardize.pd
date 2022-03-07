@@ -1,0 +1,13 @@
+#N canvas 968 23 1487 1315 12;
+#X obj 137 116 inlet;
+#X obj 211 115 inlet;
+#X obj 281 117 inlet;
+#X text 111 76 incoming data \, std dev \, mean;
+#X obj 135 183 -;
+#X obj 135 215 /;
+#X obj 137 262 outlet;
+#X connect 0 0 4 0;
+#X connect 1 0 5 1;
+#X connect 2 0 4 1;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
