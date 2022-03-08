@@ -35,6 +35,11 @@ function _std()
 
 function bang()
 {
+	if (data_points.length == 0)
+	{
+		post("Create some data points first!");
+		return;
+	}
 	outlet(0, _std());
 	outlet(1, _mean());
 }
