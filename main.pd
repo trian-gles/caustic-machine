@@ -1,4 +1,4 @@
-#N canvas 1063 103 1487 1315 12;
+#N canvas 1050 57 1487 1315 12;
 #X declare -lib timbreID/timbreIDLib;
 #X declare -path /abstractions;
 #X declare -path /tests;
@@ -9,12 +9,12 @@
 #X obj 1267 462 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 1268 588 s sampleLen;
-#X floatatom 761 518 5 0 0 0 - - -;
-#X text 656 541 doubled transp;
-#X obj 765 549 s trans;
-#X floatatom 444 544 5 0 0 0 - - -;
-#X text 447 511 central rate;
-#X obj 439 571 s rate;
+#X floatatom 763 564 5 0 0 0 - - -;
+#X text 658 587 doubled transp;
+#X obj 767 595 s trans;
+#X floatatom 446 590 5 0 0 0 - - -;
+#X text 449 557 central rate;
+#X obj 441 617 s rate;
 #N canvas 394 138 972 560 melodies 0;
 #X obj 53 38 loadbang;
 #X obj 220 17 inlet;
@@ -29,12 +29,12 @@
 #X connect 2 1 5 0;
 #X connect 2 2 6 0;
 #X connect 2 3 3 0;
-#X restore 554 549 pd melodies;
-#X obj 560 516 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
--1 -1 3;
-#X obj 204 583 s position;
-#X obj 229 562 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 6235 1;
+#X restore 556 595 pd melodies;
+#X obj 562 562 hradio 15 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 227 578 s position;
+#X obj 252 557 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 12700 1;
 #X obj 184 207 adc~;
 #X floatatom 210 362 5 0 0 0 - - -;
 #N canvas 1058 430 1502 908 feature-extraction 0;
@@ -151,20 +151,20 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X obj 577 89 vsl 15 128 0 50 0 0 empty empty empty 0 -9 0 10 -258113
 -1 -1 5091 1;
 #X obj 628 92 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -4032
--1 -1 7937 1;
+-1 -1 7879 1;
 #X obj 673 93 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -4034
--1 -1 5577 1;
-#X obj 255 410 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+-1 -1 5666 1;
+#X obj 255 410 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X floatatom 159 363 5 0 0 0 - - -;
 #X floatatom 1376 584 5 0 0 0 - - -;
 #X text 29 95 ONSET;
-#X obj 261 177 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 261 177 tgl 60 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 270 248 s onoff;
 #N canvas 823 262 1051 863 playhead-influence 0;
 #X obj 140 568 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 6440 1;
+-262144 -1 -1 12700 1;
 #X obj 81 471 t b f;
 #X msg 201 511 set \$1;
 #X obj 165 443 +;
@@ -251,8 +251,8 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 35 0 27 0;
 #X connect 36 0 16 0;
 #X connect 37 0 23 1;
-#X restore 200 525 pd playhead-influence;
-#N canvas 1940 596 483 583 rate-influence 0;
+#X restore 223 520 pd playhead-influence;
+#N canvas 1714 142 483 583 rate-influence 0;
 #X obj 151 151 max 0;
 #X obj 151 179 min 100;
 #X obj 98 226 hsl 128 15 -20 120 0 0 empty empty empty -2 -8 0 10 -262144
@@ -277,10 +277,10 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 8 0 10 0;
 #X connect 9 0 4 0;
 #X connect 10 0 4 0;
-#X restore 406 483 pd rate-influence;
+#X restore 408 529 pd rate-influence;
 #N canvas 1581 116 979 847 melody-influence 0;
 #X obj 110 331 hsl 128 15 0 3.99 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 10698 1;
+-1 -1 5407 1;
 #X msg 163 308 set \$1;
 #X obj 56 223 t b f;
 #X obj 166 219 +;
@@ -316,7 +316,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 15 0 13 0;
 #X connect 15 1 12 1;
 #X connect 16 0 12 0;
-#X restore 554 483 pd melody-influence;
+#X restore 556 529 pd melody-influence;
 #N canvas 1665 290 980 932 trans-influence 0;
 #X obj 94 388 hsl 128 15 -24 24 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 7875 1;
@@ -381,7 +381,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 25 0 26 0;
 #X connect 26 0 27 0;
 #X connect 27 0 24 0;
-#X restore 748 481 pd trans-influence;
+#X restore 750 527 pd trans-influence;
 #X floatatom 358 363 5 0 0 0 - - -;
 #X obj 47 329 env~ 16384 8192;
 #X floatatom 47 416 5 0 0 0 - - -;
@@ -474,7 +474,7 @@ a series-patched subpatch connected to [specHarmonicity~].;
 #X connect 6 0 3 1;
 #X restore 180 1052 pd density;
 #X obj 85 1118 vsl 15 128 40 500 0 0 empty empty duration 0 -9 0 10
--262144 -1 -1 600 1;
+-262144 -1 -1 11000 1;
 #X msg 798 978 all 0;
 #N canvas 385 647 450 300 trans 0;
 #X obj 216 70 r trans;
