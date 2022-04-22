@@ -1,0 +1,17 @@
+#N canvas 1252 141 1970 1315 12;
+#X declare -path ../javascripts;
+#X declare -path ../;
+#X obj 83 128 declare -path ../javascripts;
+#X obj 93 138 declare -path ../;
+#X obj 531 317 js ../javascripts/variance.js;
+#X msg 482 216 compile;
+#X floatatom 593 563 5 0 0 0 - - - 0;
+#X msg 632 205 1;
+#X msg 716 204 2;
+#X obj 566 195 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 5 0 2 0;
+#X connect 6 0 2 0;
+#X connect 7 0 2 0;
