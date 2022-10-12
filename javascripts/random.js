@@ -10,8 +10,15 @@ function randn_bm() {
 
 function msg_float(f) {
 	let args = Array.from(jsarguments);
-	
-	outlet(0, distributed_choice(f, args[1], args[2]));
+	let low = args[1];
+	let high = args[2];
+	let center = f;
+	if (f < -10)
+	{
+		center = -10;
+		high = 8; 
+	}
+	outlet(0, distributed_choice(center, low, high));
 }
 
 function distributed_choice(center, low, high)
